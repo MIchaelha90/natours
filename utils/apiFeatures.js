@@ -10,15 +10,15 @@ class APIFeatures {
     const queryObj = { ...this.queryString };
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
-    console.log('--- build query ---');
-    console.log(queryObj);
+    // console.log('--- build query ---');
+    // console.log(queryObj);
 
     // 1B) Advance filtering. We convert it into a string to do some extra filter,
     //then convert it back to an object again
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
-    console.log('---parsed query string ----');
-    console.log(JSON.parse(queryStr));
+    // console.log('---parsed query string ----');
+    // console.log(JSON.parse(queryStr));
 
     this.query = this.query.find(JSON.parse(queryStr));
 
@@ -30,8 +30,8 @@ class APIFeatures {
   sort() {
     if (this.queryString.sort) {
       const sortBy = this.queryString.sort.split(',').join(' ');
-      console.log('--- sort By --- ');
-      console.log(sortBy);
+      // console.log('--- sort By --- ');
+      // console.log(sortBy);
       this.query = this.query.sort(sortBy);
       // sort('price ratingsAverage'); if you want multiple sorting variables
     } else {

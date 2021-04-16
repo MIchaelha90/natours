@@ -210,7 +210,7 @@ tourSchema.pre(/^find/, function (next) {
 
 // we have access to the docs like last time, since the query has returned
 tourSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} miliseconds `);
+  //console.log(`Query took ${Date.now() - this.start} miliseconds `);
   next();
 });
 

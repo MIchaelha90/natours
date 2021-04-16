@@ -12,7 +12,7 @@ module.exports = class Email {
 
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
-      console.log('running transporter in prodution mode....');
+      // console.log('running transporter in prodution mode....');
       // sendgrid
       return nodemailer.createTransport({
         service: 'SendGrid',
@@ -22,7 +22,7 @@ module.exports = class Email {
         },
       });
     }
-    console.log('creating new transporter....');
+    // console.log('creating new transporter....');
     // Create a transporter - a service that will actually send the email
     return nodemailer.createTransport({
       //host instead of service, since mailtrap is built into Nodemailer like e.g. gmail

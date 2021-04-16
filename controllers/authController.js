@@ -221,13 +221,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
   // 1) get user based on the Token from the URL wildcard
-  console.log(`token from url: ${req.params.token}`);
+  //console.log(`token from url: ${req.params.token}`);
   const hashedToken = crypto
     .createHash('sha256')
     .update(req.params.token)
     .digest('hex');
 
-  console.log(`Database look up on token: ${hashedToken}`);
+  //console.log(`Database look up on token: ${hashedToken}`);
 
   const user = await User.findOne({
     passwordResetToken: hashedToken,
@@ -268,8 +268,8 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     return next(new AppError('Passwords does not match', 401));
   }
 
-  console.log(req.body.password);
-  console.log(req.body.passwordConfirm);
+  //console.log(req.body.password);
+  //console.log(req.body.passwordConfirm);
 
   // 3) if so updatePassword
   currentUser.password = req.body.password;

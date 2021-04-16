@@ -75,7 +75,7 @@ exports.getOne = (Model, popOptions) =>
 
 exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log(req.query);
+    //console.log(req.query);
 
     // to allow for nested GET Reviews on tour (small hack, okay in short-term)
     // only show reviews for selected tour filter, if not specified it will show all reviews

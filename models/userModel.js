@@ -124,9 +124,9 @@ userSchema.methods.createPasswordResetToken = function () {
     .update(resetToken)
     .digest('hex');
 
-  console.log(
-    ` Email Reset Token: ${resetToken} \n Encrypt Reset Token DB: ${this.passwordResetToken}`
-  );
+  // console.log(
+  //   ` Email Reset Token: ${resetToken} \n Encrypt Reset Token DB: ${this.passwordResetToken}`
+  // );
   this.name = 'Michael';
   // password reset expires after 10 min (60000 milisecs)
   this.passwordResetExpires = Date.now() + 10 * 60 * 100;

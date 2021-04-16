@@ -11,6 +11,7 @@ const hpp = require('hpp');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const csp = require('express-csp');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController.js');
@@ -20,7 +21,7 @@ const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 
-// Start Express app
+// Start Express application
 const app = express();
 
 // setup pug view template
@@ -148,10 +149,13 @@ app.use(
   })
 );
 
+// Compress all the text that is sent to clients
+app.use(compression());
+
 // just some test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log(req.cookies);
+  //console.log(req.cookies);
 
   next();
 });

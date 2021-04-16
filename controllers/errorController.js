@@ -93,13 +93,13 @@ module.exports = (err, req, res, next) => {
 
   //We don't want the client to receive error details
   if (process.env.NODE_ENV === 'development') {
-    console.log('------ valdation error ------');
+    //console.log('------ valdation error ------');
 
     sendErrorDev(err, req, res);
   } else if (process.env.NODE_ENV === 'production') {
     let error = err;
 
-    console.log(error);
+    //console.log(error);
 
     // pass the mongoose error, it will return a new error created with our AppError class
     // and that error will then be marked as operational

@@ -42,8 +42,8 @@ if (settingsForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').file[0]);
-    console.log('------ Photo-----');
-    console.log(form);
+    // console.log('------ Photo-----');
+    // console.log(form);
 
     updateSettings(form, 'data');
   });
@@ -71,8 +71,8 @@ if (userPasswordForm) {
 
 if (bookBtn) {
   bookBtn.addEventListener('click', (e) => {
-    console.log('Clicking on Booking botton');
-    console.log(e.target.dataset);
+    // console.log('Clicking on Booking botton');
+    // console.log(e.target.dataset);
     e.target.textContent = 'Processing...';
     const { tourId } = e.target.dataset;
     bookTour(tourId);
